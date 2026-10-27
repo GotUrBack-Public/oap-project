@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Objectives as Policies (OaP) connects a vision-language model to physics-based model-predictive control through editable objective programs for contact-rich manipulation.">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="author" content="Zihao Lu, Trong Gia Hung Nguyen, Fuquan Wang, Yifan Zhu">
+  <meta name="citation_title" content="Objectives as Policies: Vision-Language Model Cost Programs for Contact-Rich Manipulation">
+  <meta name="citation_author" content="Zihao Lu">
+  <meta name="citation_author" content="Trong Gia Hung Nguyen">
+  <meta name="citation_author" content="Fuquan Wang">
+  <meta name="citation_author" content="Yifan Zhu">
+  <meta name="citation_pdf_url" content="https://zihaolu001.github.io/oap-project/static/paper/oap.pdf">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Objectives as Policies">
+  <meta property="og:description" content="Vision-Language Model Cost Programs for Contact-Rich Manipulation">
+  <meta property="og:url" content="https://zihaolu001.github.io/oap-project/">
+  <meta property="og:image" content="https://zihaolu001.github.io/oap-project/static/videos/pick-poster.jpg">
+  <meta property="og:image:width" content="960">
+  <meta property="og:image:height" content="540">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://zihaolu001.github.io/oap-project/">
+  <title>Objectives as Policies</title>
+  <link rel="icon" href="data:,">
+  <link rel="preload" href="./static/vendor/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="./static/vendor/bulma/bulma.min.css">
+  <link rel="stylesheet" href="./static/vendor/fonts/fonts.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <script src="./static/js/index.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <nav class="project-nav" aria-label="Page navigation">
+    <a href="#abstract">Abstract</a>
+    <a href="#video">Video</a>
+    <a href="#method">Method</a>
+    <a href="#results">Results</a>
+    <a href="#bibtex">BibTeX</a>
+  </nav>
+  <main id="main">
+    <section class="hero publication-header" aria-labelledby="paper-title">
+      <div class="hero-body">
+        <div class="container is-max-desktop">
+          <div class="columns is-centered">
+            <div class="column has-text-centered">
+              <h1 id="paper-title" class="title is-1 publication-title">Objectives as Policies:<br><span class="publication-subtitle">Vision-Language Model Cost Programs<br class="wide-break"> for Contact-Rich Manipulation</span></h1>
+              <div class="is-size-5 publication-authors">
+                <span class="author-block"><a href="mailto:zlu31@uic.edu">Zihao Lu</a><sup>*</sup>,</span>
+                <span class="author-block"><a href="mailto:tnguy321@uic.edu">Trong Gia Hung Nguyen</a><sup>*</sup>,</span>
+                <span class="author-block">Fuquan Wang,</span>
+                <span class="author-block"><a href="https://yifanzhu95.github.io/" target="_blank" rel="noopener noreferrer">Yifan Zhu</a></span>
+              </div>
+              <div class="is-size-5 publication-affiliation">University of Illinois Chicago</div>
+              <p class="equal-contribution"><sup>*</sup>Equal contribution</p>
+              <div class="publication-links">
+                <a href="./static/paper/oap.pdf" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer"><span class="icon"><img src="./static/vendor/fontawesome/file-pdf.svg" alt="" width="16" height="16"></span><span>Paper</span></a>
+                <!-- Replace this disabled button with the arXiv abstract link after publication. -->
+                <button class="button is-normal is-rounded arxiv-pending" disabled title="The arXiv link will be added after publication.">arXiv · coming soon</button>
+                <a href="#video" class="button is-normal is-rounded is-dark"><span class="icon"><img src="./static/vendor/fontawesome/youtube.svg" alt="" width="18" height="16"></span><span>Video</span></a>
+                <a href="https://github.com/ZihaoLu001/OaP" class="external-link button is-normal is-rounded is-dark" target="_blank" rel="noopener noreferrer"><span class="icon"><img src="./static/vendor/fontawesome/github.svg" alt="" width="17" height="17"></span><span>Code</span></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="hero teaser" aria-label="Real-world demonstrations">
+      <div class="container is-max-desktop">
+        <div class="hero-body">
+          <div class="task-picker"><label for="task-select">Task:</label><div class="select"><select id="task-select"><option value="pick">Pick-and-place</option><option value="cup">Cup Reorientation</option><option value="push">Direct Push</option><option value="toolpush">Push with Tool</option></select></div></div>
+          <video id="task-video" controls muted loop playsinline preload="metadata" poster="./static/videos/pick-poster.jpg" width="960" height="540" aria-label="Pick-and-place real-world demonstration"><source src="./static/videos/pick.mp4" type="video/mp4">Your browser does not support embedded video. <a href="./static/videos/pick.mp4">Download the demonstration</a>.</video>
+          <p id="task-description" class="task-description" aria-live="polite">Place the eraser on top of the box and release it.</p>
+          <p class="teaser-summary"><strong>OaP</strong> connects a vision-language model to a shared physics-based controller through an editable objective program.</p>
+          <noscript><p>More demonstrations: <a href="./static/videos/cup.mp4">Cup Reorientation</a> · <a href="./static/videos/push.mp4">Direct Push</a> · <a href="./static/videos/toolpush.mp4">Push with Tool</a></p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="abstract" aria-labelledby="abstract-title">
+      <div class="container is-max-desktop"><div class="columns is-centered"><div class="column is-four-fifths">
+        <h2 id="abstract-title" class="title is-3 has-text-centered">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>Vision-language models (VLMs) have shown strong semantic and spatial reasoning capabilities in 3D environments. Recently, connecting VLMs with model-predictive controllers (MPC) has emerged as a paradigm for combining strong semantic reasoning with physics-based planning. However, connecting these two for contact-rich robotic manipulation requires a task representation that bridges the two and captures how physical interactions can be reasoned about by VLMs.</p>
+          <p>In this work, we introduce <strong>Objectives as Policies (OaP)</strong>, a framework that connects a pretrained VLM to a shared sampling-based MPC through an editable objective program. Each program specifies a sequence of stages for completing a task, combining running and terminal costs from a cost library with stage completion conditions. Given a natural-language task instruction and scene observation, we build a simulation-based digital twin through real-to-sim, and the VLM generates an objective program that the MPC executes in simulation. The VLM iteratively updates the program based on MPC rollouts before deployment in the real world. We evaluate OaP in simulation and on a physical robot across four tabletop manipulation tasks.</p>
+        </div>
+      </div></div></div>
+    </section>
+
+    <section class="section" id="video" aria-labelledby="video-title">
+      <div class="container is-max-desktop">
+        <h2 id="video-title" class="title is-3 has-text-centered">Video</h2>
+        <video id="overview-video" controls playsinline preload="metadata" poster="./static/videos/pick-poster.jpg" width="1920" height="1080" aria-label="Objectives as Policies full overview video"><source src="./static/videos/SupplementVideo.mp4" type="video/mp4">Your browser does not support embedded video. <a href="./static/videos/SupplementVideo.mp4">Download the video</a>.</video>
+        <p class="media-caption has-text-centered"><a href="./static/videos/SupplementVideo.mp4" download>Download the video</a> <span class="muted">(MP4, 15.9 MB)</span></p>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="method" aria-labelledby="method-title">
+      <div class="container is-max-desktop">
+        <h2 id="method-title" class="title is-3 has-text-centered">Method</h2>
+        <figure class="method-figure"><a href="./static/images/method.pdf" target="_blank" rel="noopener noreferrer" aria-label="Open the method figure as a PDF"><img src="./static/images/method.png" alt="OaP builds a digital twin from a scene observation, generates a staged objective program using a VLM and a cost library, refines the program from simulated execution feedback, and deploys it with MPC and a stage verifier on the real robot." width="2650" height="1000" loading="lazy"></a></figure>
+        <div class="columns method-steps">
+          <div class="column"><h3 class="title is-5">Generate an objective program</h3><p>The VLM uses the task instruction, scene observation, and cost library to specify stages, running costs, terminal costs, and completion conditions.</p></div>
+          <div class="column"><h3 class="title is-5">Refine in simulation</h3><p>A shared MPC executes the program in the digital twin. The VLM uses execution feedback to revise the program before deployment.</p></div>
+          <div class="column"><h3 class="title is-5">Execute on the robot</h3><p>The MPC replans from the measured state using the fixed program. A stage verifier advances the task when its completion conditions are met.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="demonstrations" aria-labelledby="demonstrations-title">
+      <div class="container is-max-desktop">
+        <h2 id="demonstrations-title" class="title is-3 has-text-centered">Real-world execution and its digital twin</h2>
+        <p class="section-intro has-text-centered">Each pair shows a real-camera frame (left) and a MuJoCo reconstruction (right)<br class="wide-break"> from the same run’s recorded robot and object states.</p>
+        <div class="columns is-multiline paired-gallery">
+          <figure class="column is-half"><h3 class="title is-5">Pick-and-place</h3><a href="./static/frames/pick-late.webp" target="_blank" rel="noopener noreferrer"><img src="./static/frames/pick-late.webp" alt="Pick-and-place: the eraser is on the box, shown in the real camera and recorded-state simulation." width="1060" height="450" loading="lazy"></a></figure>
+          <figure class="column is-half"><h3 class="title is-5">Cup Reorientation</h3><a href="./static/frames/cup-late.webp" target="_blank" rel="noopener noreferrer"><img src="./static/frames/cup-late.webp" alt="Cup Reorientation: the robot holds a tilted cup, shown in the real camera and recorded-state simulation." width="1060" height="450" loading="lazy"></a></figure>
+          <figure class="column is-half"><h3 class="title is-5">Direct Push</h3><a href="./static/frames/push-late.webp" target="_blank" rel="noopener noreferrer"><img src="./static/frames/push-late.webp" alt="Direct Push: the box after direct pushing, shown in the real camera and recorded-state simulation." width="1060" height="450" loading="lazy"></a></figure>
+          <figure class="column is-half"><h3 class="title is-5">Push with Tool</h3><a href="./static/frames/toolpush-late.webp" target="_blank" rel="noopener noreferrer"><img src="./static/frames/toolpush-late.webp" alt="Push with Tool: the robot uses a held eraser to push the box, shown in the real camera and recorded-state simulation." width="1060" height="450" loading="lazy"></a></figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-tinted" id="results" aria-labelledby="results-title">
+      <div class="container is-max-desktop"><div class="columns is-centered"><div class="column is-four-fifths">
+        <h2 id="results-title" class="title is-3 has-text-centered">Results</h2>
+        <div class="content">
+          <p>The residual library and self-review both improve success in simulation. Without execution feedback, the four variants achieve:</p>
+          <div class="table-container"><table class="table is-fullwidth result-table"><caption>Simulation success across four tasks, ten trials per task.<br>Each valid program executes once; generation failures count as failures.</caption><thead><tr><th scope="col">Objective representation</th><th scope="col">Without self-review</th><th scope="col">With self-review</th></tr></thead><tbody><tr><th scope="row">VLM-generated expressions</th><td>8/40 (20%)</td><td>14/40 (35%)</td></tr><tr><th scope="row">Residual library</th><td>20/40 (50%)</td><td><strong>26/40 (65%)</strong></td></tr></tbody></table></div>
+          <p>With the library, self-review, and <strong>at most two feedback rounds</strong>, cumulative simulation success reaches <strong>36/40 (90%)</strong>, allowing up to three executions per trial.</p>
+          <p>On the physical robot, selected simulation-successful programs succeed in <strong>32/40 executions (80%)</strong> across two perturbed scene configurations. See the <a href="./static/paper/oap.pdf" target="_blank" rel="noopener noreferrer">paper</a> for the full protocol, baselines, and limitations.</p>
+        </div>
+      </div></div></div>
+    </section>
+
+    <section class="section" id="bibtex" aria-labelledby="bibtex-title">
+      <div class="container is-max-desktop">
+        <div class="citation-heading"><h2 id="bibtex-title" class="title is-3">BibTeX</h2><button id="copy-citation" class="button is-small is-light" type="button">Copy</button></div>
+        <pre class="citation"><code id="citation-text">@misc{lu2026objectivesaspolicies,
+  title  = {Objectives as Policies: Vision-Language Model Cost Programs
+            for Contact-Rich Manipulation},
+  author = {Zihao Lu and Trong Gia Hung Nguyen and Fuquan Wang and Yifan Zhu},
+  year   = {2026},
+  url    = {https://zihaolu001.github.io/oap-project/}
+}</code></pre>
+        <p class="citation-note">The arXiv identifier will be added after publication.</p>
+        <span id="copy-status" class="sr-only" role="status"></span>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="container is-max-desktop"><div class="content has-text-centered">
+      <p>This website is adapted from the <a href="https://nerfies.github.io/" target="_blank" rel="noopener noreferrer">Nerfies</a> template by Keunhong Park and contributors.<br>The website source is licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</p>
+      <p><a href="https://github.com/ZihaoLu001/oap-project" target="_blank" rel="noopener noreferrer">Website source</a> · <a href="https://github.com/ZihaoLu001/OaP" target="_blank" rel="noopener noreferrer">OaP code</a></p>
+    </div></div>
+  </footer>
+</body>
+</html>

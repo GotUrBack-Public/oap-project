@@ -1,0 +1,16 @@
+Objectives as Policies project website
+
+Website source adapted from the Nerfies website by Keunhong Park and contributors:
+https://github.com/nerfies/nerfies.github.io
+
+The original template and this adaptation are licensed under the Creative Commons
+Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0).
+
+License deed: https://creativecommons.org/licenses/by-sa/4.0/
+Legal code: https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+Changes: OaP research content, author information, local assets, demonstration
+selection, result presentation, and citation copying.
+
+Third-party software and font notices are in static/vendor/THIRD_PARTY_NOTICES.md.
+The paper and experiment media are credited to their respective authors.
