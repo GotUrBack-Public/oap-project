@@ -11,12 +11,11 @@ See `NERFIES-NOTICE.txt`. The OaP site adapts the title, author, resource-button
 and section layout; its content and media are its own. The original template
 requests a footer link back to Nerfies.
 
-## Bulma 0.9.1
+## Bulma 1.0.4
 
-`bulma/bulma.min.css` is copied byte-for-byte from the audited Nerfies commit.
-The embedded copyright/license banner is preserved.  
-Source: https://github.com/jgthms/bulma/tree/0.9.1  
-Copyright (c) 2020 Jeremy Thomas. MIT license: `bulma/LICENSE`.
+`bulma/bulma.min.css` is the unmodified `css/versions/bulma-no-dark-mode.min.css`
+from the official [Bulma 1.0.4 package](https://www.npmjs.com/package/bulma/v/1.0.4).
+Copyright (c) 2023 Jeremy Thomas. See [the MIT license](bulma/LICENSE).
 
 ## Google Sans and Noto Sans
 
