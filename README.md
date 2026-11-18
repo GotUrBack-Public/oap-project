@@ -14,4 +14,4 @@ The Paper PDF button opens the current version on arXiv. The existing local link
 
 ## Template
 
-Adapted from [Nerfies](https://nerfies.github.io/) by Keunhong Park and contributors. The website source uses the [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/). Bulma, fonts, and icons are hosted locally. See the [dependency notices](static/vendor/THIRD_PARTY_NOTICES.md).
+The layout and player styling follow the [CR-Open project page](https://zihaolu001.github.io/cropen-project/), adapted from [Nerfies](https://nerfies.github.io/) by Keunhong Park and contributors. The website source uses the [CC BY-SA 4.0 license](https://creativecommons.org/licenses/by-sa/4.0/). Bulma, fonts, and icons are hosted locally. See the [dependency notices](static/vendor/THIRD_PARTY_NOTICES.md).

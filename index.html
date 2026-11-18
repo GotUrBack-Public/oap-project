@@ -28,49 +28,64 @@
   <link rel="preload" href="./static/vendor/fonts/google-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="./static/vendor/bulma/bulma.min.css?v=1.0.4">
   <link rel="stylesheet" href="./static/vendor/fonts/fonts.css">
-  <link rel="stylesheet" href="./static/css/index.css?v=20261118">
-  <script src="./static/js/index.js?v=20261118" defer></script>
+  <link rel="stylesheet" href="./static/css/index.css?v=20261118-series">
+  <script src="./static/js/index.js?v=20261118-series" defer></script>
 </head>
 <body>
   <a class="skip-link" href="#demonstrations">Skip to demonstrations</a>
+  <nav class="top-bar" aria-label="More research">
+    <details class="more-research">
+      <summary>More Research</summary>
+      <div class="more-research-menu"><a href="https://zihaolu001.github.io/cropen-project/">Push, Squeeze or Turn? (CR-Open)</a></div>
+    </details>
+  </nav>
   <main>
     <header class="hero publication-header">
-      <div class="hero-body container is-max-desktop has-text-centered">
-        <h1 class="publication-title">Objectives as Policies<span class="sr-only">:</span>
-          <span class="publication-subtitle">Vision-Language Model Cost Programs<br class="wide-break"> for Contact-Rich Manipulation</span>
-        </h1>
-        <p class="publication-authors">
-          <span><a href="mailto:zlu31@uic.edu">Zihao Lu</a><sup>*</sup>,</span>
-          <span><a href="mailto:tnguy321@uic.edu">Trong Gia Hung Nguyen</a><sup>*</sup>,</span>
-          <span>Fuquan Wang,</span>
-          <span><a href="https://yifanzhu95.github.io/">Yifan Zhu</a></span>
-        </p>
-        <p class="affiliation">University of Illinois Chicago</p>
-        <p class="equal-contribution"><sup>*</sup>Equal contribution</p>
-        <nav class="publication-links" aria-label="Project resources">
-          <a class="button is-rounded is-dark" href="https://arxiv.org/abs/2611.18298">arXiv</a>
-          <a class="button is-rounded is-dark" href="https://arxiv.org/pdf/2611.18298"><img src="./static/vendor/fontawesome/file-pdf.svg" alt="">Paper PDF</a>
-          <a class="button is-rounded is-dark" href="#video"><img src="./static/vendor/fontawesome/youtube.svg" alt="">Video</a>
-          <a class="button is-rounded is-dark" href="https://github.com/ZihaoLu001/OaP"><img src="./static/vendor/fontawesome/github.svg" alt="">Code</a>
-        </nav>
+      <div class="hero-body">
+        <div class="container is-max-desktop has-text-centered">
+          <h1 class="title is-1 publication-title">Objectives as Policies<span class="sr-only">:</span>
+            <span class="publication-subtitle">Vision-Language Model Cost Programs for Contact-Rich Manipulation</span>
+          </h1>
+          <p class="is-size-5 publication-authors">
+            <span class="author-block"><a href="mailto:zlu31@uic.edu">Zihao Lu</a><sup>*</sup>,</span>
+            <span class="author-block"><a href="mailto:tnguy321@uic.edu">Trong Gia Hung Nguyen</a><sup>*</sup>,</span>
+            <span class="author-block">Fuquan Wang,</span>
+            <span class="author-block"><a href="https://yifanzhu95.github.io/">Yifan Zhu</a></span>
+          </p>
+          <p class="is-size-5 publication-authors publication-affiliation">University of Illinois Chicago</p>
+          <p class="status-line"><sup>*</sup>Equal contribution</p>
+          <nav class="publication-links" aria-label="Project resources">
+            <a class="button is-normal is-rounded resource-link" href="https://arxiv.org/abs/2611.18298">arXiv</a>
+            <a class="button is-normal is-rounded resource-link" href="https://arxiv.org/pdf/2611.18298"><span class="icon"><img src="./static/vendor/fontawesome/file-pdf.svg" alt=""></span><span>Paper PDF</span></a>
+            <a class="button is-normal is-rounded resource-link" href="#video"><span class="icon"><img src="./static/vendor/fontawesome/youtube.svg" alt=""></span><span>Video</span></a>
+            <a class="button is-normal is-rounded resource-link" href="https://github.com/ZihaoLu001/OaP"><span class="icon"><img src="./static/vendor/fontawesome/github.svg" alt=""></span><span>Code</span></a>
+          </nav>
+          <div class="content tldr-wrap">
+            <p class="tldr"><strong>TL;DR:</strong> A vision-language model refines cost programs in simulation before the robot executes them.</p>
+          </div>
+        </div>
       </div>
     </header>
 
-    <section class="demo-section" id="demonstrations" aria-label="Real-world demonstrations">
-      <p class="tldr"><strong>TL;DR</strong> A vision-language model writes and revises task objectives in simulation. On the real robot, a model-predictive controller uses those objectives to plan each motion.</p>
-      <div class="demo-player">
-        <fieldset class="task-picker" hidden>
-          <legend class="sr-only">Choose a real-world manipulation task</legend>
-          <label><input type="radio" name="task" value="pick" checked><span>Pick-and-place</span></label>
-          <label><input type="radio" name="task" value="cup"><span>Cup Reorientation</span></label>
-          <label><input type="radio" name="task" value="push"><span>Direct Push</span></label>
-          <label><input type="radio" name="task" value="toolpush"><span>Push with Tool</span></label>
+    <section class="section player-section" id="demonstrations" aria-label="Real-world demonstrations">
+      <div class="container is-max-desktop">
+        <fieldset class="task-picker buttons has-addons is-centered clip-tabs" aria-label="Choose a real-world manipulation task" hidden>
+          <label class="button"><input type="radio" name="task" value="pick" checked><span>Pick-and-place</span></label>
+          <label class="button"><input type="radio" name="task" value="cup"><span>Cup Reorientation</span></label>
+          <label class="button"><input type="radio" name="task" value="push"><span>Direct Push</span></label>
+          <label class="button"><input type="radio" name="task" value="toolpush"><span>Push with Tool</span></label>
         </fieldset>
-        <video id="task-video" controls muted loop playsinline preload="metadata" poster="./static/videos/pick-poster.jpg" width="960" height="540" aria-label="Pick-and-place demonstration">
-          <source src="./static/videos/pick.mp4" type="video/mp4">
-          <a href="./static/videos/pick.mp4">Download the task video</a>
-        </video>
-        <p id="task-description" class="task-description" aria-live="polite">Place the eraser on top of the box and release it.</p>
+        <div class="video-wrap">
+          <video id="task-video" controls muted loop playsinline preload="metadata" poster="./static/videos/pick-poster.jpg" width="960" height="540" aria-label="Pick-and-place demonstration">
+            <source src="./static/videos/pick.mp4" type="video/mp4">
+            <a href="./static/videos/pick.mp4">Download the task video</a>
+          </video>
+          <button id="clip-toggle" class="clip-toggle is-paused" type="button" aria-controls="task-video" aria-label="Play the clip" hidden>
+            <svg class="icon-play" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 2.2v11.6c0 .6.7 1 1.2.6l9-5.8c.5-.3.5-.9 0-1.2l-9-5.8C4.7 1.2 4 1.6 4 2.2z"/></svg>
+            <svg class="icon-pause" width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>
+          </button>
+        </div>
+        <p id="task-description" class="clip-text" aria-live="polite">Place the eraser on top of the box and release it.</p>
         <noscript><p><a href="./static/videos/cup.mp4">Cup Reorientation</a> · <a href="./static/videos/push.mp4">Direct Push</a> · <a href="./static/videos/toolpush.mp4">Push with Tool</a></p></noscript>
         <details class="twin-comparison">
           <summary>Compare the camera view with the digital twin</summary>
@@ -82,17 +97,17 @@
       </div>
     </section>
 
-    <section class="paper-section" id="abstract" aria-labelledby="abstract-title">
-      <h2 id="abstract-title">Abstract</h2>
-      <div class="reading-column">
+    <section class="section paper-section" id="abstract" aria-labelledby="abstract-title">
+      <h2 class="title is-3 has-text-centered" id="abstract-title">Abstract</h2>
+      <div class="content narrow has-text-justified">
         <p>How can a robot turn an instruction such as “place the eraser on the box” into a sequence of physical interactions? In Objectives as Policies (OaP), a pretrained vision-language model writes an objective program for a shared sampling-based model-predictive controller. Each stage specifies running costs, terminal costs, and conditions for advancing to the next stage.</p>
         <p>We reconstruct the scene from RGB-D observations and run the program in this digital twin. The model can revise the program using feedback from simulated executions. On the physical robot, the controller follows the fixed program and replans motions from the measured state. We evaluate this approach on four tabletop tasks in simulation and on hardware.</p>
       </div>
     </section>
 
-    <section class="paper-section" id="video" aria-labelledby="video-title">
-      <h2 id="video-title">Video</h2>
-      <figure class="media-column">
+    <section class="section paper-section" id="video" aria-labelledby="video-title">
+      <h2 class="title is-3 has-text-centered" id="video-title">Video</h2>
+      <figure class="container is-max-desktop">
         <video id="overview-video" controls playsinline preload="none" poster="./static/videos/overview-poster.jpg" width="1920" height="1080" aria-label="Narrated overview of Objectives as Policies">
           <source src="./static/videos/SupplementVideo.mp4" type="video/mp4">
           <a href="./static/videos/SupplementVideo.mp4">Download the overview video</a>
@@ -101,18 +116,18 @@
       </figure>
     </section>
 
-    <section class="paper-section" id="method" aria-labelledby="method-title">
-      <h2 id="method-title">Method</h2>
-      <figure class="method-figure">
+    <section class="section paper-section" id="method" aria-labelledby="method-title">
+      <h2 class="title is-3 has-text-centered" id="method-title">Method</h2>
+      <figure class="container is-max-desktop page-figure">
         <a href="./static/images/method.pdf" aria-label="Open the full-size method figure (PDF)"><img src="./static/images/method.png" alt="The VLM selects costs and revises the objective program using simulated rollouts. On hardware, MPC executes the program and a verifier decides when to advance to the next stage." width="2650" height="1000" loading="lazy"></a>
         <figcaption><a href="./static/images/method.pdf">View full-size figure (PDF)</a></figcaption>
       </figure>
-      <p class="reading-column">In one simulated pick-and-place trial, the robot was still holding the eraser at the end of the run. The release stage asked the gripper to open while rewarding it for holding the eraser. After reviewing the rollout, the model removed that cost and split release and settling into separate stages. On the next execution, the robot placed the eraser on the box and let go.</p>
+      <p class="content narrow has-text-justified">In one simulated pick-and-place trial, the robot was still holding the eraser at the end of the run. The release stage asked the gripper to open while rewarding it for holding the eraser. After reviewing the rollout, the model removed that cost and split release and settling into separate stages. On the next execution, the robot placed the eraser on the box and let go.</p>
     </section>
 
-    <section class="paper-section" id="results" aria-labelledby="results-title">
-      <h2 id="results-title">Results</h2>
-      <div class="reading-column">
+    <section class="section paper-section" id="results" aria-labelledby="results-title">
+      <h2 class="title is-3 has-text-centered" id="results-title">Results</h2>
+      <div class="content narrow has-text-justified">
         <p>With the cost library and self-review, OaP succeeded in <strong>26 of 40 simulation trials (65%)</strong> before execution feedback. With up to two feedback rounds, cumulative success reached <strong>36 of 40 (90%)</strong>, with at most three executions per trial.</p>
         <p>On hardware, we tested 20 programs that had succeeded in simulation, each in two perturbed scenes. The robot completed the task in <strong>32 of 40 executions (80%)</strong>.</p>
         <details class="ablation">
@@ -126,9 +141,9 @@
       </div>
     </section>
 
-    <section class="paper-section" id="bibtex" aria-labelledby="bibtex-title">
-      <div class="reading-column">
-        <div class="citation-heading"><h2 id="bibtex-title">BibTeX</h2><button id="copy-citation" class="button is-small" type="button" hidden>Copy</button></div>
+    <section class="section paper-section" id="bibtex" aria-labelledby="bibtex-title">
+      <div class="narrow">
+        <div class="citation-heading"><h2 class="title is-3 has-text-centered" id="bibtex-title">BibTeX</h2><button id="copy-citation" class="button is-small" type="button" hidden>Copy</button></div>
         <pre class="citation"><code id="citation-text">@misc{lu2026objectivespoliciesvisionlanguagemodel,
   title = {Objectives as Policies: Vision-Language Model Cost Programs for Contact-Rich Manipulation},
   author = {Zihao Lu and Trong Gia Hung Nguyen and Fuquan Wang and Yifan Zhu},
@@ -143,8 +158,10 @@
     </section>
   </main>
   <footer class="footer">
+    <div class="content has-text-centered">
     <p>Website adapted from <a href="https://nerfies.github.io/">Nerfies</a> by Keunhong Park and contributors.<br>
       <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a> · <a href="https://github.com/ZihaoLu001/oap-project">Website source</a></p>
+    </div>
   </footer>
 </body>
 </html>

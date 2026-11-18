@@ -1,5 +1,16 @@
 'use strict';
 
+const researchMenu = document.querySelector('.more-research');
+document.addEventListener('click', (event) => {
+  if (researchMenu.open && !researchMenu.contains(event.target)) researchMenu.open = false;
+});
+document.addEventListener('keydown', (event) => {
+  if (researchMenu.open && event.key === 'Escape') {
+    researchMenu.open = false;
+    researchMenu.querySelector('summary').focus();
+  }
+});
+
 const tasks = {
   pick: {
     name: 'Pick-and-place',
@@ -25,6 +36,7 @@ const tasks = {
 
 const picker = document.querySelector('.task-picker');
 const taskVideo = document.getElementById('task-video');
+const clipToggle = document.getElementById('clip-toggle');
 const overviewVideo = document.getElementById('overview-video');
 const comparison = document.getElementById('twin-frame');
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -32,6 +44,27 @@ const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 function playPreview() {
   if (!reduceMotion.matches) taskVideo.play().catch(() => {});
 }
+
+function updatePlaybackControl() {
+  clipToggle.classList.toggle('is-paused', taskVideo.paused);
+  clipToggle.setAttribute('aria-label', taskVideo.paused ? 'Play the clip' : 'Pause the clip');
+}
+
+function togglePlayback() {
+  if (taskVideo.paused) taskVideo.play().catch(updatePlaybackControl);
+  else taskVideo.pause();
+}
+
+clipToggle.addEventListener('click', togglePlayback);
+taskVideo.addEventListener('click', togglePlayback);
+taskVideo.addEventListener('play', updatePlaybackControl);
+taskVideo.addEventListener('pause', updatePlaybackControl);
+taskVideo.addEventListener('emptied', updatePlaybackControl);
+reduceMotion.addEventListener('change', () => {
+  if (reduceMotion.matches) taskVideo.pause();
+});
+taskVideo.controls = false;
+clipToggle.hidden = false;
 
 function selectTask(key) {
   const task = tasks[key];
